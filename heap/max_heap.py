@@ -29,16 +29,15 @@ class Heap:
         while self.hasLeftChild(index):
             left = self.getLeftChild(index)
             if self.storage[left] > self.storage[index]:
-                largerChild = left
+                larger_child = left
             if self.hasRightChild(index):
                 right = self.getRightChild(index)
                 if self.storage[right] > self.storage[left]:
-                    largerChild = right
-            if self.storage[index] >= self.storage[largerChild]:
+                    larger_child = right
+            if self.storage[index] >= self.storage[larger_child]:
                 break
-            self.storage[largerChild], self.storage[index] = self.storage[index], self.storage[largerChild]
-            index = largerChild
-
+            self.storage[larger_child], self.storage[index] = self.storage[index], self.storage[larger_child]
+            index = larger_child
 
     def hasParent(self, index):
         return (index-1) // 2 >= 0
